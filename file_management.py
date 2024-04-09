@@ -11,8 +11,24 @@ class FileManagement:
             destination_dir (str): File's directory path
             file_name (str): File name with its extension.
         """
-        self.destination_dir = destination_dir
+        self.destination_dir = self.check_directory(destination_dir)
         self.file_name = file_name
+
+    @staticmethod
+    def check_directory(directory: str) -> str:
+        """
+        Function checks if directory exists and make directory when not.
+        Args:
+            directory (str): Directory path to be checked or maked.
+
+        Returns:
+            str: Directory path.
+        """
+        if os.path.exists(directory):
+            return directory
+        else:
+            os.makedirs(directory)
+            return directory
 
     def create_unique_filename(self) -> str:
         """Create unique filename by adding unique number at the end of file name.
@@ -20,7 +36,7 @@ class FileManagement:
         Returns:
             str: The proper file path.
         """
-        name, extension = self.file_name.split()
+        name, extension = os.path.splitext(self.file_name)
         path = os.path.join(self.destination_dir, self.file_name)
         counter =+ 1
         while os.path.exists(path):

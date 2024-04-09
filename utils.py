@@ -1,15 +1,18 @@
-IMAGE_EXTENSIONS = [
-    ".jpg", ".jpeg", ".jpe", ".jif", ".jfif", ".jfi", ".png", ".gif", ".webp",
-    ".tiff", ".tif", ".psd", ".raw", ".arw", ".cr2", ".nrw",".k25", ".bmp",
-    ".dib", ".heif", ".heic", ".ind", ".indd", ".indt", ".jp2", ".j2k", ".jpf",
-    ".jpf", ".jpx", ".jpm", ".mj2", ".svg", ".svgz", ".ai", ".eps", ".ico",
-]
+def categorizes_files() -> dict:
+    """Function collects mapping between file extensions and destination folder.
 
-VIDEO_EXTENSIONS = [
-    ".webm", ".mpg", ".mp2", ".mpeg", ".mpe", ".mpv", ".ogg",".mp4", ".mp4v",
-    ".m4v", ".avi", ".wmv", ".mov", ".qt", ".flv", ".swf", ".avchd"
-]
-
-DOCUMENT_EXTENSIONS = [
-    ".doc", ".docx", ".odt", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx"
-]
+    Returns:
+        dict: Returns folder mapping as dictionary.
+    """
+    file_mapping = {
+        "documents": [
+            ".doc", ".docx", ".odt", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx",
+        ],
+        "images": [
+            ".jpg", ".jpeg",
+        ],
+        "videos": [
+            ".webm", ".mpg", ".mp2", ".mpeg", ".mpv", ".mp4", ".mp4v", ".m4v",".wmv",
+        ],
+    }
+    return file_mapping
