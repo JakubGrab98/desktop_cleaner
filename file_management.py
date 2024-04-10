@@ -1,6 +1,9 @@
 """Module responsible for file management (renaming, moving)"""
 import os
 import shutil
+import logging
+
+logger = logging.getLogger(__name__)
 
 class FileManagement:
     """Class responsible for file management"""
@@ -28,6 +31,7 @@ class FileManagement:
             return directory
         else:
             os.makedirs(directory)
+            logger.info(f"{directory} was created!")
             return directory
 
     def create_unique_filename(self) -> str:
@@ -53,3 +57,4 @@ class FileManagement:
         """
         unique_destination_path = self.create_unique_filename()
         shutil.move(source_path, unique_destination_path)
+        logger.info(f"File was saved in {unique_destination_path}")
