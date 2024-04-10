@@ -44,7 +44,7 @@ class FileManagement:
         path = os.path.join(self.destination_dir, self.file_name)
         counter =+ 1
         while os.path.exists(path):
-            new_name = f"{name}{str(counter)}.{extension}"
+            new_name = f"{name}{str(counter)}{extension}"
             path = os.path.join(self.destination_dir, new_name)
             counter =+ 1
         return str(path)
