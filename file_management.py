@@ -29,6 +29,7 @@ class FileManagement:
         if not directory.exists():
             directory.mkdir(parents=True, exist_ok=True)
             logger.info(f"{directory} was created!")
+            
         return directory
 
     def create_unique_filename(self) -> Path:
@@ -40,11 +41,13 @@ class FileManagement:
         destination_path = self.destination_dir.joinpath(self.file_name)
         extension = destination_path.suffix
         counter = 1
+
         while destination_path.exists():
             name = destination_path.stem
             new_name = f"{name}{str(counter)}{extension}"
             destination_path = self.destination_dir.joinpath(new_name)
             counter += 1
+
         return destination_path
     
     def move_file(self, source_path: Path) -> None:
@@ -54,6 +57,7 @@ class FileManagement:
             source_path (Path): The path from file should be moved.
         """
         unique_destination_path = self.create_unique_filename()
+
         try:
             shutil.move(source_path, unique_destination_path)
             logger.info(f"File was saved in {unique_destination_path}.")
