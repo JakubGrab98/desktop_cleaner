@@ -43,7 +43,7 @@ class FileManagement:
         counter = 1
 
         while destination_path.exists():
-            name = destination_path.stem
+            name = self.file_name.split(".")[0]
             new_name = f"{name}{str(counter)}{extension}"
             destination_path = self.destination_dir.joinpath(new_name)
             counter += 1
