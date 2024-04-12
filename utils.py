@@ -6,7 +6,7 @@ def categorizes_files() -> dict:
     """
     file_mapping = {
         "documents": [
-            ".doc", ".docx", ".odt", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx",
+            ".doc", ".docx", ".odt", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx", ".txt",
         ],
         "images": [
             ".jpg", ".jpeg",
